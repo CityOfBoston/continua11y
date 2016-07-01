@@ -9,7 +9,7 @@ A continuous integration service using [pa11y](https://github.com/nature/pa11y),
 
 ## Contributing
 
-See [CONTRIBUTING](CONTRIBUTING.md) for additional information.
+See [CONTRIBUTING](CONTRIBUTING.md) for additional information.   
 
 ### Branch flow
 
