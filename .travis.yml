@@ -39,9 +39,8 @@ before_deploy:
 - go get github.com/concourse/autopilot
 - cf install-plugin -f $GOPATH/bin/autopilot
 deploy:
-- provider: script
-  script: "./scripts/deploy.sh production"
-  skip_cleanup: true
-  on:
-    branch: release
-    node: '0.12'
+  app: cob-continua11y
+  provider: heroku
+  on: release
+  api_key:
+    secure: V772eQDr0huLITcpvxCsWuzMxyNHccdRou+utfoP4z7ei4lt+Oq7R2bETLO+fcrmLNOV29a4IiF0p2uAH91bWn74wd2aaNoSu2ueMei4gtxwXF/Qiaf4IkKn+yUqxl39ZTekim/AAHY2eE4MtdjDmxfVB3ddcYmMFbv5oW/e0XFW8yjmjz1b1GelA5dvghh5htP3xPbdNPz6+VaNXLQp0loc8f7VAcE5IEm+9UJsiw5iltFmIG7qWEvJeqB9msAl3/KpUC1rjyDvYPcHfF+GwibtEZXdWr66mD44QsuFNL+ho073dIDJdv7qBUI7JzUyNCOckJ+H00tUyujwg1WMa92S6JLtHQLLYNq4Dr1IOOPNRVkvzvM/sK2aXepAnp6QbMMsEe48gT/OkkFbWBcqSAqmZrd2YpTBPjxqnKDguwdL+tot+qFY8l9IyKztLnL4QK56xFUXuzZtZrCRNxk0YzVK8IJwjsnePtEsZSoY8pJ+ZriBuTfiFywyfJTFWWroqUUcHVvE+FqUPGajk53Ys19bvlB3CEzYSYeTskboS898BhXlpCu/FRHI+qjXuvOpwO99tZ5RH3s62Gh+FIUecJMHWmQASUAZlqrypmyiLG6d7lNI+6AEGrIH9G6dEWjA7C75ZMuEj1NjVStn7vuiDmuU0QmmOK+M9ckTG16jJ8Q=
