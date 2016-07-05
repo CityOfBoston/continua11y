@@ -19,9 +19,7 @@ before_script:
 - psql -c 'create database continua11y_test;' -U postgres
 - psql -c 'create database continua11y;' -U postgres
 script: npm test --coverage
-after_script:
-- npm install -g pa11y-crawl
-- pa11y-crawl --ci https://cob-continua11y.herokuapp.com
+after_script: ./scripts/continua11y.sh
 notifications:
   email: false
 env:
