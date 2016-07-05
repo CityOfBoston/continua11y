@@ -1,20 +1,20 @@
 language: node_js
 node_js:
-- "0.12"
+- '0.12'
 cache:
-    directories:
-    - node_modules
+  directories:
+  - node_modules
 sudo: false
 addons:
-    postgresql: "9.4"
-    apt:
-        packages:
-        - libcairo2-dev
-        - libjpeg8-dev
-        - libpango1.0-dev
-        - libgif-dev
-        - build-essential
-        - g++
+  postgresql: '9.4'
+  apt:
+    packages:
+    - libcairo2-dev
+    - libjpeg8-dev
+    - libpango1.0-dev
+    - libgif-dev
+    - build-essential
+    - g++
 before_script:
 - psql -c 'create database continua11y_test;' -U postgres
 - psql -c 'create database continua11y;' -U postgres
@@ -24,12 +24,12 @@ after_script:
 - npm install -g pa11y-crawl
 - pa11y-crawl --run "npm start" --ci http://localhost:3000
 notifications:
-    email: false
+  email: false
 env:
-    global:
-    - GITHUB_TOKEN=FAKE_TEST_TOKEN
-    - CF_USERNAME=18f-acq_deployer
-    - secure: "lgJhmljgx5JWK8/WZNkyF5tkSg9AMWhjiglHp/TQaCymVDED68ZsiHD1PxXpY2364uluTYxhb5yBsjwNV1Ss0V7MGd5WIOxY6kDCC6Kt+p3iEs7uBxkUWcsutW76n1sRziAEKIW0KOseikPN4WO1RGuuR2XPRNIb9pNXDhqeQ/s="
+  global:
+  - GITHUB_TOKEN=FAKE_TEST_TOKEN
+  - CF_USERNAME=18f-acq_deployer
+  - secure: lgJhmljgx5JWK8/WZNkyF5tkSg9AMWhjiglHp/TQaCymVDED68ZsiHD1PxXpY2364uluTYxhb5yBsjwNV1Ss0V7MGd5WIOxY6kDCC6Kt+p3iEs7uBxkUWcsutW76n1sRziAEKIW0KOseikPN4WO1RGuuR2XPRNIb9pNXDhqeQ/s=
 before_deploy:
 - export PATH=$HOME:$PATH
 - travis_retry curl -L -o $HOME/cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.15.0"
@@ -43,4 +43,4 @@ deploy:
   provider: heroku
   on: release
   api_key:
-    secure: V772eQDr0huLITcpvxCsWuzMxyNHccdRou+utfoP4z7ei4lt+Oq7R2bETLO+fcrmLNOV29a4IiF0p2uAH91bWn74wd2aaNoSu2ueMei4gtxwXF/Qiaf4IkKn+yUqxl39ZTekim/AAHY2eE4MtdjDmxfVB3ddcYmMFbv5oW/e0XFW8yjmjz1b1GelA5dvghh5htP3xPbdNPz6+VaNXLQp0loc8f7VAcE5IEm+9UJsiw5iltFmIG7qWEvJeqB9msAl3/KpUC1rjyDvYPcHfF+GwibtEZXdWr66mD44QsuFNL+ho073dIDJdv7qBUI7JzUyNCOckJ+H00tUyujwg1WMa92S6JLtHQLLYNq4Dr1IOOPNRVkvzvM/sK2aXepAnp6QbMMsEe48gT/OkkFbWBcqSAqmZrd2YpTBPjxqnKDguwdL+tot+qFY8l9IyKztLnL4QK56xFUXuzZtZrCRNxk0YzVK8IJwjsnePtEsZSoY8pJ+ZriBuTfiFywyfJTFWWroqUUcHVvE+FqUPGajk53Ys19bvlB3CEzYSYeTskboS898BhXlpCu/FRHI+qjXuvOpwO99tZ5RH3s62Gh+FIUecJMHWmQASUAZlqrypmyiLG6d7lNI+6AEGrIH9G6dEWjA7C75ZMuEj1NjVStn7vuiDmuU0QmmOK+M9ckTG16jJ8Q=
+    secure: AwGhhvxns4dYyZf0GF5L4RK6KyIP3cp57Jn8Xqk6zmbkDlrVYUiOtngTpw5LFUUbCGMtAzvv4w0DalWcd4WyVzeWfvXf5vnPiE2h10ei7BwWf/UidGCqlgJdgLKuJzRsRCRtwKzXkLVHk6OJ1e8Q/iZ1n+77a86jWBC6X0IuR7qOIQuf1c0bycCDB5FzEq8ppxAJpKr+Wqp618qgqWekeFTYEgKctCsNN99kOylFFxjIjEN1bsnlnc5gIGKVVbrQskBJEMPpL+rRBLp0CqxVMp7P33lcE4lDBAlzZlp0plIKRgu23zNYXE1iBzka12Of7rtxyD1ZnxhdLdZvcHYQSAp5PHPIWZqssBWIM42JkbO0cl0V4tPZcD04eWaDnWubUdF7+NVQezFp/5RCtJebc5r5MH4MW+GCrJbrZbVowdd56bqOXSTopGCQOIQzA3j+v44iLltnd9el7HXM/rhgylWLZ7muBsqkFNNtXxKF4aLXrBZ6phrVboGFzsoNuevqgKMRci0JUuovGoc65YbJKmmAxeoHP1HaHd6Xll9Y8Q4ukMLjtlXxQoKy/EyP+qxjpMNhUEBT6LiLS2JubujzGpo7wZC4s00nzq9d8BzaiptGvl8P7HAU9O+jL0Wb+TCTeW3/PW7wtyve6YBLxXw8bXdfpyG6ERilNqtMWAOBpz8=
