@@ -21,7 +21,7 @@ before_script:
 script: npm test --coverage
 after_script:
 - npm install -g pa11y-crawl
-- pa11y-crawl --run "npm start" --ci https://cob-continua11y.herokuapp.com
+- pa11y-crawl --ci https://cob-continua11y.herokuapp.com
 notifications:
   email: false
 env:
